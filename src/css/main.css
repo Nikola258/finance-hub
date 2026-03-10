@@ -1,7 +1,7 @@
 body {
     display: grid;
     place-items: center;
-    background-color: #04063e;
+    background-color: #001440;
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -12,5 +12,5 @@ body {
 }
 
 h1 {
-    color: #8873be;
+    color: #1C39BB;
 }
