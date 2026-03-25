@@ -1,13 +1,16 @@
 import Dashboard from "./components/Dashboard.jsx"
 import { BrowserRouter as Router } from 'react-router-dom';
 import { ThemeProviderWrapper } from './context/ThemeContext';
+import {CryptoProvider} from "./context/CryptoContext.jsx";
 
 export default function App() {
     return (
-        <ThemeProviderWrapper>
-            <Router>
-                <Dashboard />
-            </Router>
-        </ThemeProviderWrapper>
+        <CryptoProvider>
+            <ThemeProviderWrapper>
+                <Router>
+                    <Dashboard />
+                </Router>
+            </ThemeProviderWrapper>
+        </CryptoProvider>
     )
 }

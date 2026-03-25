@@ -16,8 +16,8 @@ const Sidebar = () => {
     const toggleMobile = () => setMobileOpen(!mobileOpen);
 
     const menu = [
-        { text: 'Crypto Dashboard', icon: <MonetizationOn />, path: '/' },
-        { text: 'Classic Dashboard', icon: <Dashboard />, path: '/dashboard' }
+        { text: 'Crypto Dashboard', icon: <MonetizationOn />, path: '/crypto_dashboard' },
+        { text: 'Classic Dashboard', icon: <Dashboard />, path: '/classic_dashboard' }
     ];
 
     const isSelected = (path) => path === '/' ? location.pathname === '/' || location.pathname.startsWith('/coin/') : location.pathname === path;
