@@ -1,7 +1,10 @@
-import { Card, CardContent, Typography, Box, useTheme } from '@mui/material';
+import Card from '../mui-components/Card';
+import CardContent from '../mui-components/CardContent';
+import Typography from '../mui-components/typography';
+import Box from '../mui-components/box';
+import { useTheme } from '@mui/material';
 import { AreaChart as RechartsAreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
-// Accepts: title, data, dataKey (default 'value'), xAxisKey (default 'date'), color (default 'primary')
 const AreaChart = ({ title, data = [], dataKey = 'value', xAxisKey = 'date', color = 'primary' }) => {
     const theme = useTheme();
     const strokeColor = theme.palette[color]?.main || theme.palette.primary.main;
@@ -21,8 +24,8 @@ const AreaChart = ({ title, data = [], dataKey = 'value', xAxisKey = 'date', col
                             </defs>
                             <CartesianGrid strokeDasharray="3 3" stroke={theme.palette.divider} />
                             <XAxis dataKey={xAxisKey} tick={{ fill: theme.palette.text.secondary, fontSize: 11 }} />
-                            <YAxis tick={{ fill: theme.palette.text.secondary, fontSize: 11 }} />
-                            <Tooltip contentStyle={{ backgroundColor: theme.palette.background.paper, borderColor: theme.palette.divider }} />
+                            <YAxis tick={{ fill: theme.palette.text.secondary, fontSize: 11 }} tickFormatter={(v) => `$${new Intl.NumberFormat('en-US', { notation: 'compact' }).format(v)}`} />
+                            <Tooltip formatter={(v) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(v)} contentStyle={{ backgroundColor: theme.palette.background.paper, borderColor: theme.palette.divider }} />
                             <Area type="monotone" dataKey={dataKey} stroke={strokeColor} fill="url(#areaGradient)" />
                         </RechartsAreaChart>
                     </ResponsiveContainer>

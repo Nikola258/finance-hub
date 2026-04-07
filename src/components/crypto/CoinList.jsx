@@ -1,5 +1,18 @@
 import { useState } from 'react';
-import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography, Box, IconButton, TablePagination, Avatar, TextField, InputAdornment } from '@mui/material';
+import Paper from '../mui-components/Paper';
+import Table from '../mui-components/Table';
+import TableBody from '../mui-components/TableBody';
+import TableCell from '../mui-components/TableCell';
+import TableContainer from '../mui-components/TableContainer';
+import TableHead from '../mui-components/TableHead';
+import TableRow from '../mui-components/TableRow';
+import Typography from '../mui-components/typography';
+import Box from '../mui-components/box';
+import IconButton from '../mui-components/IconButton';
+import TablePagination from '../mui-components/TablePagination';
+import Avatar from '../mui-components/Avatar';
+import TextField from '../mui-components/TextField';
+import InputAdornment from '../mui-components/InputAdornment';
 import { Search, Star, StarBorder, TrendingUp, TrendingDown } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 import { useCryptoContext } from '../../context/CryptoContext';
@@ -9,7 +22,7 @@ const CoinList = () => {
   const navigate = useNavigate();
 
   // geeft coin array en laad state van CryptoContext
-  const { coins, loading } = useCryptoContext();
+  const { coins, loading, favorites, toggleFav } = useCryptoContext();
 
   // huidige page nummer voor pagination (start op 0)
   const [page, setPage] = useState(0);
@@ -20,10 +33,7 @@ const CoinList = () => {
   // de text de user typt in de search bar
   const [search, setSearch] = useState('');
 
-  // array van coin IDs de user als favorites heeft geselecteerd
-  const [favorites, setFavorites] = useState([]);
-
-  // laat een loading message wanneer de API data aan het fetchen is
+  // array van coin IDs de user als favorites heeft geselecteerd — komt uit context
   if (loading) return <Typography sx={{ p: 3 }}>Loading...</Typography>;
 
   // filter coins met naam of symbool gebaseerd op de search input
@@ -38,9 +48,7 @@ const CoinList = () => {
   // format een nummer als een USD currency string, e.g. 1234.5 → "$1,234.50"
   const formatUSD = (n) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(n);
 
-  // voeg of verwijder een coin toe van favorites gebaseerd op de coin ID
-  const toggleFav = (id) =>
-    setFavorites(prev => prev.includes(id) ? prev.filter(f => f !== id) : [...prev, id]);
+  // voeg of verwijder een coin toe van favorites gebaseerd op de coin ID — komt uit context
 
   return (
     <Box>

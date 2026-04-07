@@ -9,6 +9,10 @@ export const useCryptoContext = () => useContext(CryptoContext);
 export const CryptoProvider = ({ children }) => {
     const [coins, setCoins] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [favorites, setFavorites] = useState([]);
+
+    const toggleFav = (id) =>
+        setFavorites(prev => prev.includes(id) ? prev.filter(f => f !== id) : [...prev, id]);
 
     useEffect(() => {
         const fetchCoins = async () => {
@@ -45,7 +49,7 @@ export const CryptoProvider = ({ children }) => {
     }, []);
 
     return (
-        <CryptoContext.Provider value={{ coins, loading }}>
+        <CryptoContext.Provider value={{ coins, loading, favorites, toggleFav }}>
             {children}
         </CryptoContext.Provider>
     );

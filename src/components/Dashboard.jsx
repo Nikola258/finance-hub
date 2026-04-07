@@ -3,6 +3,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import Sidebar from './sidebar/Sidebar';
 import CryptoDashboard from './dashboard/CryptoDashboard';
 import ClassicDashboard from './dashboard/ClassicDashboard';
+import CoinDetails from './crypto/CoinDetails';
 
 const drawerWidth = 240;
 
@@ -15,6 +16,7 @@ export default function Dashboard() {
                     <Route path="/" element={<Navigate to="/crypto_dashboard" replace />} />
                     <Route path="/crypto_dashboard" element={<CryptoDashboard />} />
                     <Route path="/classic_dashboard" element={<ClassicDashboard />} />
+                    <Route path="/coin/:id" element={<CoinDetails />} />
                 </Routes>
             </main>
 
