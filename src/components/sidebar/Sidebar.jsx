@@ -1,15 +1,5 @@
 import { useState } from 'react';
-import Drawer from '../mui-components/Drawer';
-import List from '../mui-components/List';
-import ListItem from '../mui-components/ListItem';
-import ListItemButton from '../mui-components/ListItemButton';
-import ListItemIcon from '../mui-components/ListItemIcon';
-import ListItemText from '../mui-components/ListItemText';
-import IconButton from '../mui-components/IconButton';
-import Typography from '../mui-components/typography';
-import Box from '../mui-components/box';
-import Divider from '../mui-components/Divider';
-import { useTheme, useMediaQuery } from '@mui/material';
+import { Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText, IconButton, Typography, Box, Divider, useTheme, useMediaQuery } from '@mui/material';
 import { Menu as MenuIcon, ChevronLeft, MonetizationOn, Dashboard, NightlightRound, LightMode } from '@mui/icons-material';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useThemeContext } from '../../context/ThemeContext';

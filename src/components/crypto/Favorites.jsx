@@ -1,14 +1,4 @@
-import Box from '../mui-components/box';
-import Typography from '../mui-components/typography';
-import Table from '../mui-components/Table';
-import TableBody from '../mui-components/TableBody';
-import TableCell from '../mui-components/TableCell';
-import TableContainer from '../mui-components/TableContainer';
-import TableHead from '../mui-components/TableHead';
-import TableRow from '../mui-components/TableRow';
-import Paper from '../mui-components/Paper';
-import Avatar from '../mui-components/Avatar';
-import IconButton from '../mui-components/IconButton';
+import { Box, Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Avatar, IconButton } from '@mui/material';
 import { Star, TrendingUp, TrendingDown } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 import { useCryptoContext } from '../../context/CryptoContext';
@@ -21,15 +11,11 @@ const Favorites = () => {
     const formatUSD = (n) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(n);
 
     if (favCoins.length === 0) return (
-        <Box>
-            <Typography variant="h6" sx={{ mb: 2 }}>Favorites</Typography>
-            <Typography color="text.secondary">Star a coin from the list below to add it here.</Typography>
-        </Box>
+        <Typography color="text.secondary">Star a coin from the list below to add it here.</Typography>
     );
 
     return (
         <Box>
-            <Typography variant="h6" sx={{ mb: 2 }}>Favorites</Typography>
             <TableContainer component={Paper}>
                 <Table>
                     <TableHead>

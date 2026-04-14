@@ -25,7 +25,7 @@ export const CryptoProvider = ({ children }) => {
                     }
                 );
 
-                const data = response.data.Data.map((item, index) => ({
+                const data = response.data.Data.map((item, index) => ({ // data is api data
                     id: item.CoinInfo.Name,
                     name: item.CoinInfo.FullName,
                     symbol: item.CoinInfo.Name,
@@ -36,7 +36,7 @@ export const CryptoProvider = ({ children }) => {
                     image: `https://www.cryptocompare.com${item.CoinInfo.ImageUrl}`,
                 }));
 
-                setCoins(data);
+                setCoins(data);//hier vul ik coins met data
                 setLoading(false);
             } catch (error) {
                 console.error("Error fetching coins:", error);
@@ -46,7 +46,7 @@ export const CryptoProvider = ({ children }) => {
         };
 
         fetchCoins();
-    }, []);
+    }, []);//bracket hoeveel keer je het laad, daar in kun je usestate, elke keer als die usestate/functie input veranderd dan laad het de pagina
 
     return (
         <CryptoContext.Provider value={{ coins, loading, favorites, toggleFav }}>

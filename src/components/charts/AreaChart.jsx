@@ -1,8 +1,4 @@
-import Card from '../mui-components/Card';
-import CardContent from '../mui-components/CardContent';
-import Typography from '../mui-components/typography';
-import Box from '../mui-components/box';
-import { useTheme } from '@mui/material';
+import { Card, CardContent, Typography, Box, useTheme } from '@mui/material';
 import { AreaChart as RechartsAreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 const AreaChart = ({ title, data = [], dataKey = 'value', xAxisKey = 'date', color = 'primary' }) => {
