@@ -25,10 +25,10 @@ const CoinDetails = () => {
             params: { fsym: id, tsym: 'USD', limit: 30 },
             headers,
         }).then(res => {
-            const data = res.data.Data.Data.map(d => ({
-                date: new Date(d.time * 1000).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }),
-                value: d.close,
-            }));
+            const data = res.data.Data.Data.map(d => {
+                const date = new Date(d.time * 1000).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+                return { date, value: d.close };
+            });
             setHistory(data);
         });
     }, [id]);
